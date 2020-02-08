@@ -1,4 +1,5 @@
 import { getMemoDashLib, getCurrentUsername } from '../selectors'
+import {getFollowersForUser} from "./user-profile.actions";
 
 export const UserActionTypes = {
   USER_RECEIVED: 'USER_RECEIVED',

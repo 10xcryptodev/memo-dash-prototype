@@ -1,16 +1,20 @@
-import MemoDashClient from '@dashevo/dash-schema/dash-core-daps/memodash/memodash-client'
-import { Schema } from '@dashevo/dash-schema/dash-vmn'
+// import MemoDashClient from '@dashevo/dash-schema/dash-core-daps/memodash/memodash-client'
 
 import generateTestData from './test-data-generator'
+import MemoDashClient from "./memo-dash-client";
 
 export default class MemoDashLib {
   async init() {
     if (process.env.REACT_APP_RESET_VMN) {
-      Schema.VMN.Util.reset()
+      // debugger
+      // Schema.VMN.Util.reset()
+      console.error('Dont know how to reset VMN')
     }
 
     this.memoDashClient = new MemoDashClient()
+    window.mdc = this.memoDashClient
 
+    // console.log('not sure how to generate test data')
     await generateTestData(this.memoDashClient)
   }
 

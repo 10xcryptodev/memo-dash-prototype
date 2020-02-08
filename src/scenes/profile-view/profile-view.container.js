@@ -1,12 +1,12 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import ProfileViewComponent from './profile-view.component'
-import { getUser, updateProfile } from '../../store/actions'
-import { getUserProfile, isProfileOfCurrentUser } from '../../store/selectors'
+import {getUser, updateProfile} from '../../store/actions'
+import {getUserProfile, isProfileOfCurrentUser} from '../../store/selectors'
 
 const mapStateToProps = (state, ownProps) => {
   const {
     match: {
-      params: { username }
+      params: {username}
     }
   } = ownProps
 

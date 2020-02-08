@@ -1,5 +1,5 @@
-import data from '@dashevo/dash-schema/dash-core-daps/memodash/memodash-client-fixtures'
-import dashMemoSchema from '@dashevo/dash-schema/dash-core-daps/memodash/memodash-schema'
+import data from './memo-dash-data'
+import dashMemoSchema from './memo-dash-schema'
 
 import faker from 'faker'
 
@@ -10,7 +10,7 @@ const generateTestData = async client => {
     const dapId = availableDap[0].dapcontract.meta.dapid
     await loadDapContract(client, dapId)
   } else {
-    console.log('No Dap available -> create one', availableDap[0])
+    console.log('No Dap available -> create one')
     try {
       const users = [data.alice_subtx_1.subtx.uname, data.bob_subtx_1.subtx.uname]
       await createUsers(client, ...users)
@@ -55,7 +55,7 @@ const createUsers = async (client, ...users) => {
 
     client.logout()
   }
-  client.log('generated test data for ' + dashMemoSchema.title)
+  client.log('generated test data for', dashMemoSchema.title)
 }
 
 const connectMutually = async (client, ...users) => {
