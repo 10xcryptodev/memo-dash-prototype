@@ -28,10 +28,15 @@ export default class MemoComponent extends Component {
       showDelete,
       showBorders,
       replies,
-      memoNotAvailable,
       openModalOnClick,
       onModalOpenClicked
     } = this.props
+
+    let {memoNotAvailable} = this.props
+
+    if (memo === undefined) {
+      return null
+    }
 
     return (
       <Segment
@@ -54,8 +59,8 @@ export default class MemoComponent extends Component {
             </Comment.Content>
             {showReplies && !!replies && (
               <Comment.Group>
-                {replies.map(reply => (
-                  <MemoContainer showReplies={true} memo={reply} key={reply.idx} />
+                {replies.map((reply, k) => (
+                  <MemoContainer showReplies={true} memo={reply} key={k} />
                 ))}
               </Comment.Group>
             )}

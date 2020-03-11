@@ -6,10 +6,11 @@ import MemoModalContainer from './modal/memo-modal.container'
 const MemosComponent = props => {
   const { memos } = props
   return (
-    <Segment basic center>
+    <Segment basic center="true">
       {memos ? (
         <Comment.Group>
           {Object.keys(memos)
+            .filter(id => !memos[id].parentIdx)
             .sort((a, b) => a.memoDatetime < b.memoDatetime)
             .map(memoId => (
               <MemoContainer

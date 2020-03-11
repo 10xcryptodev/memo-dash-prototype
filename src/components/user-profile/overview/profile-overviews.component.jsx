@@ -10,9 +10,9 @@ const ProfileOverviewsComponent = props => {
     <Fragment>
       {userProfiles ? (
         <Card.Group itemsPerRow={itemsPerRow ? itemsPerRow : 3}>
-          {Object.values(userProfiles).map(userProfile => (
+          {Object.values(userProfiles).map((userProfile, k) => (
             <ProfileOverviewContainer
-              key={userProfile.username}
+              key={k}
               actualUsername={actualUsername}
               userProfile={userProfile}
             />

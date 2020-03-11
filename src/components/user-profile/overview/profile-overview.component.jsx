@@ -3,7 +3,7 @@ import { Card, Image, Label } from 'semantic-ui-react'
 import FollowButtonContainer from '../../follow/follow-button.container'
 
 const ProfileOverviewComponent = props => {
-  const { userProfile } = props
+  const { userProfile, followers, following } = props
 
   if (!userProfile) return null
 
@@ -22,11 +22,11 @@ const ProfileOverviewComponent = props => {
       <Card.Content extra>
         <Label>
           Followers
-          <Label.Detail>{userProfile.followersCount}</Label.Detail>
+          <Label.Detail>{followers.length}</Label.Detail>
         </Label>
         <Label>
           Following
-          <Label.Detail>{userProfile.followingCount}</Label.Detail>
+          <Label.Detail>{following.length}</Label.Detail>
         </Label>
       </Card.Content>
     </Card>
